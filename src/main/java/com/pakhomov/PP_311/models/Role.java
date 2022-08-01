@@ -1,6 +1,5 @@
 package com.pakhomov.PP_311.models;
 
-import org.hibernate.annotations.Cascade;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -17,7 +16,7 @@ public class Role implements GrantedAuthority {
     @Column(name = "role_name")
     private String roleName;
 
-    @ManyToMany(mappedBy = "roles",cascade = CascadeType.MERGE)
+    @ManyToMany(mappedBy = "roles", cascade = CascadeType.MERGE)
     private Collection<User> users;
 
 

@@ -1,7 +1,6 @@
 package com.pakhomov.PP_311.models;
 
 
-import org.hibernate.annotations.Cascade;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -64,11 +63,6 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public int getAge() {
         return age;
     }
@@ -95,9 +89,17 @@ public class User implements UserDetails {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -118,10 +120,6 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Set<Role> getRoles() {

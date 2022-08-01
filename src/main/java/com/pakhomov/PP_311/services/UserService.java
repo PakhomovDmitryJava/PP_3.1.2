@@ -3,7 +3,6 @@ package com.pakhomov.PP_311.services;
 import com.pakhomov.PP_311.models.Role;
 import com.pakhomov.PP_311.models.User;
 import com.pakhomov.PP_311.repositories.UserRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @Transactional(readOnly = true)
@@ -23,6 +21,7 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder cryptPasswordEncoder;
+
     @Autowired
     public UserService(UserRepository userRepository, BCryptPasswordEncoder cryptPasswordEncoder) {
         this.userRepository = userRepository;
@@ -55,7 +54,7 @@ public class UserService implements UserDetailsService {
         User user = userRepository.getById(id);
         updatedUser.setId(id);
         updatedUser.setRoles(userRepository.getById(id).getRoles());
-        if(!user.getPassword().equals(updatedUser.getPassword())) {
+        if (!user.getPassword().equals(updatedUser.getPassword())) {
             updatedUser.setPassword(cryptPasswordEncoder.encode(updatedUser.getPassword()));
         }
         userRepository.save(updatedUser);
