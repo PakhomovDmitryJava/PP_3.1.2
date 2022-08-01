@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
@@ -10,22 +10,28 @@
     <tr>
         <td>Id</td>
         <td>Name</td>
-        <td>Email</td>
         <td>Age</td>
+        <td>Email</td>
+        <td>Password</td>
+        <td>Roles</td>
     </tr>
     <tbody th:each="user:${users}">
     <tr>
         <div>
             <td>
-        <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getId()}">User</a>
+        <a th:href="@{/admin/{id}(id=${user.getId()})}" th:text="${user.getId()}">User</a>
         </td>
         </div>
-        <td th:text="${user.getName()}">User</td>
+        <td th:text="${user.getUsername()}">User</td>
         <td th:text="${user.getAge()}">User</td>
         <td th:text="${user.getEmail()}">User</td>
+        <td th:text="${user.getPassword()}">User</td>
+        <td th:text="${user.getRoles().toString()}">User</td>
     </tr>
     </tbody>
 </table>
-<a href="/users/new">Create new user</a>
+<a href="/admin/new">Create new user</a>
+<br>
+<a href="/logout">Logout</a>
 </body>
 </html>

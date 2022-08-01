@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Show</title>
+    <title>User page</title>
 </head>
 <body>
 <p th:text="${'Id: ' + user.getId()}">VALUE</p>
@@ -12,11 +12,8 @@
 <p th:text="${'Password: ' + user.getPassword()}">VALUE</p>
 <p th:text="${'Roles: ' + user.getRoles().toString()}">VALUE</p>
 
-<a th:href="@{/admin/{id}/edit(id=${user.getId()})}">Edit</a>
-
-<form th:method="delete" th:action="@{/admin/{id}(id=${user.getId()})}">
-    <input type="submit" value="Delete"/>
-</form>
+<br>
+<a href="/">Go to main page</a>
 <br>
 <a href="/logout">Logout</a>
 </body>
