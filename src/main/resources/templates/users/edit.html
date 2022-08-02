@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Update user</title>
@@ -30,6 +30,13 @@
     <br/>
     <input type="submit" value="Update!"/>
 </form>
-<a href="/logout">Logout</a>
+<br>
+<form th:action="@{/}" method="get">
+    <button type="submit">Go to main page</button>
+</form>
+<br>
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
 </body>
 </html>

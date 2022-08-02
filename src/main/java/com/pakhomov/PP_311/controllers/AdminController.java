@@ -33,12 +33,6 @@ public class AdminController {
 
         return "users/index";
     }
-//    @GetMapping()
-//    public String index(Model model) {
-//        model.addAttribute("users", userService.findAll());
-//
-//        return "users/index";
-//    }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
@@ -56,8 +50,8 @@ public class AdminController {
         if (bindingResult.hasErrors()) {
             return "users/new";
         }
-        List<Role> roles = (List<Role>) user.getRoles();
-        user.setRoles((Set<Role>) roles);
+//        List<Role> roles = (List<Role>) user.getRoles();
+//        user.setRoles((Set<Role>) roles);
         userService.save(user);
         return "redirect:/admin";
     }

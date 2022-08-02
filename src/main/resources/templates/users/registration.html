@@ -15,13 +15,14 @@
     <input type="password" th:field="*{password}" id="password"/>
     <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
     <br/>
-<!--    <label for="password">Подтвердите пароль: </label>-->
-<!--    <input type="password" th:field="*{passwordConfirm}" id="passwordConfirm"/>-->
-<!--    <div style="color:red" th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}">Password Error</div>-->
-<!--    <br/>-->
     <input type="submit" value="Sign up!"/>
 </form>
-
 </body>
-<a href="/logout">Logout</a>
+<form th:action="@{/}" method="get">
+    <button type="submit">Go to main page</button>
+</form>
+<br>
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
 </html>
